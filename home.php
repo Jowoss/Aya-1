@@ -36,6 +36,7 @@ if(isset($_POST['home'])){
 </head>
 <body>
 
+<?php include('navbar.php');?>
 
 <div class="container user-info rounded shadow p-3 my-2">
 <h2 class="text-center mb-2">Admin Table</h2>
