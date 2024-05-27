@@ -4,10 +4,10 @@ $con = new database();
 
  session_start();
 
-if(isset($_POST['signup'])){
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $username = $_POST['user'];
+if(isset($_POST['addproduct'])){
+    $name = $_POST['name'];
+    $stock = $_POST['stock'];
+    $expiration = $_POST['date'];
     $password = $_POST['pass'];
     $confirm = $_POST['confirm'];
 
@@ -77,59 +77,51 @@ if(isset($_POST['signup'])){
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page</title>
+    <title>Add Product</title>
     <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.css">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="product.css">
 </head>
 <body>
+    <div class="container">
+        <h2 class="text-center mb-4">Add Product</h2>
+        <form action="add_product_process.php" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="productName" name="productName" required>
+            </div>
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+            </div>
+            <div class="mb-3">
+                <label for="expiration" class="form-label">Expiration Date</label>
+                <input type="date" class="form-control" id="expiration" name="expiration" required>
+            </div>
+            <div class="mb-3">
+                <label for="productPicture" class="form-label">Product Picture</label>
+                <input type="file" class="form-control" id="productPicture" name="productPicture" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
 
-
-<div class="container-fluid rounded shadow login-container">
-    <h2 class="text-center mb-4">Sign-Up</h2>
-    <form method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-            <div class="form-group">
-                <label for="firstname">First Name:</label>
-                <input type="text" class="form-control" name="firstname" placeholder="Enter your first name" >
-            </div>
-            <div class="form-group">
-                <label for="lastname">Last Name:</label>
-                <input type="text" class="form-control" name="lastname" placeholder="Enter you last name">
-            </div>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" name="user" placeholder="Enter your name" >
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" name="pass" placeholder="Enter password">
-            </div>
-            <div class="form-group">
-                <label for="password">Confirm Password:</label>
-                <input type="password" class="form-control" placeholder="Confirm your password" name="confirm">
-            </div>
-            <div class="form-group">
-                <label for="profilePicture">Profile Picture:</label>
-                <input type="file" class="form-control" name="profile_picture" accept="image/*" required>
-                <div class="invalid-feedback">Please upload a profile picture.</div>
-            </div>
-            <input type="submit" value="Sign Up" class="btn btn-danger btn-block" name="signup">
-        </div>
-    </form>
-</div>
-
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
 </body>
 </html>

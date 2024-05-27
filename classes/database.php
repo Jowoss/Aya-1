@@ -12,17 +12,17 @@ class database
     }
     
     
-    function signupUser($firstname, $lastname, $username, $password)
+    function signupUser($firstname, $lastname, $username, $password,$profilePicture)
     {
         $con = $this->opencon();
         // Save user data along with profile picture path to the database
-        $con->prepare("INSERT INTO admin (firstname,lastname, user, pass) VALUES (?,?,?,?)")->execute([$firstname, $lastname, $username, $password]);
+        $con->prepare("INSERT INTO admin (firstname,lastname, user, pass, profile_picture) VALUES (?,?,?,?,?)")->execute([$firstname, $lastname, $username, $password,$profilePicture]);
         return $con->lastInsertId();
         }
 
     function view() {
             $con = $this->opencon();
-    return $con->query("SELECT admin.admin_id, admin.firstname, admin.lastname, admin.user from admin")->fetchAll();
+    return $con->query("SELECT admin.admin_id, admin.firstname, admin.lastname, admin.user, admin.profile_picture from admin")->fetchAll();
 }
 
 function delete($admin_id) {
