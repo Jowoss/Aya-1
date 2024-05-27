@@ -13,7 +13,7 @@ if(isset($_POST['login'])){
   if($result){
     if($result['user'] == $_POST['user'] && $result['pass'] == $_POST['pass']){
       $_SESSION['user'] = $result['user'];
-      header('location:home.php');
+      header('location:product.php');
     } else {
       echo 'Incorrect username or password. Please try again.';
     }

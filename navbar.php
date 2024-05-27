@@ -10,8 +10,11 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item <?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">
-        <a class="nav-link" href="index.php">List<span class="sr-only">(current)</span></a>
+      <li class="nav-item <?php echo ($current_page == 'product.php') ? 'active' : ''; ?>">
+        <a class="nav-link" href="product.php">Product<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item <?php echo ($current_page == 'admin.php') ? 'active' : ''; ?>">
+        <a class="nav-link" href="admin.php">Admin<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item <?php echo ($current_page == 'livesearch.php' OR $current_page == 'update.php') ? 'active' : ''; ?>">
         <a class="nav-link" href="livesearch.php">Live Seach</a>

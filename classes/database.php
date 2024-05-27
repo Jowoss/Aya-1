@@ -50,4 +50,18 @@ try{
     return [];
         }
     }
+    
+    function addProduct($name, $stock, $price, $expiration, $picture)
+    {
+        $con = $this->opencon();
+        // Save user data along with profile picture path to the database
+        $con->prepare("INSERT INTO product (name,stock, price, expiration_date, picture) VALUES (?,?,?,?,?)")->execute([$name, $stock, $price, $expiration, $picture]);
+        return $con->lastInsertId();
+        }
+ 
+        public function getProductData() {
+            $con = $this->opencon();
+            return $con->query("SELECT product.product_id, product.name, product.stock, product.price, product.expiration_date, product.picture FROM product")->fetchAll();
+        }
+        
 }

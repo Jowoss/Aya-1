@@ -9,10 +9,10 @@ if (empty($_SESSION['user'])){
   header('location:login.php');                                                                                                                                                   
  }
 
-if(isset($_POST['home'])){
-    $user_id = $_POST['id'];
+if(isset($_POST['admin'])){
+    $admin_id = $_POST['id'];
     if($con->delete($admin_id)){
-        header('location:home.php');
+        header('location:admin.php');
 } else {
     echo 'Something went wrong';
 }
